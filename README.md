@@ -14,13 +14,13 @@ Clone the repository: `git clone https://github.com/priya2004k/Highest-Value-Lon
 ## Input Specifications
 The input file format is as follows:
 
-K `/n`
-x1 v1 `/n`
-x2 v2 `/n`
-... `/n`
-xK vK `/n`
-A `/n`
-B `/n`
+K  
+x1 v1  
+x2 v2  
+...  
+xK vK  
+A  
+B  
 K: number of distinct characters with assigned values
 Each of the next K lines contains:
 a character xi
@@ -31,7 +31,7 @@ B: second string
 ## Output Specifications
 The program outputs:
 
-`<maximum value>` `/n`
+`<maximum value>`  
 `<optimal subsequence>`
 
 First line: maximum total value of a common subsequence
