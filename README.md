@@ -14,13 +14,13 @@ Clone the repository: `git clone https://github.com/priya2004k/Highest-Value-Lon
 ## Input Specifications
 The input file format is as follows:
 
-K
-x1 v1
-x2 v2
-...
-xK vK
-A
-B
+K `/n`
+x1 v1 `/n`
+x2 v2 `/n`
+... `/n`
+xK vK `/n`
+A `/n`
+B `/n`
 K: number of distinct characters with assigned values
 Each of the next K lines contains:
 a character xi
@@ -31,7 +31,7 @@ B: second string
 ## Output Specifications
 The program outputs:
 
-`<maximum value>`
+`<maximum value>` `/n`
 `<optimal subsequence>`
 
 First line: maximum total value of a common subsequence
@@ -41,6 +41,6 @@ Second line: one optimal subsequence achieving that value
 To Run HVLCS on an input file
 Move your input file into the input/ directory, then run:
 
-`python src/runner.py input/YOUR_INPUT_FILE.in`
+`python src/runner.py inputs/YOUR_INPUT_FILE.in`
 
 If no input file is provided, the function will run on the default `test1.in` file. 
