@@ -37,5 +37,5 @@ def HighestValueLongestCommonSequence(a, b, value):
 
 
 if __name__ == "__main__":
-    A, B, value = parse_input("test1.in")
+    A, B, value = parse_input("tests/test1.in")
     print(HighestValueLongestCommonSequence(A, B, value))
