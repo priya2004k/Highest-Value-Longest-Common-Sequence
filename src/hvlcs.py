@@ -16,7 +16,7 @@ def parse_input(filename):
 
 def HighestValueLongestCommonSequence(a, b, value):
     memo = {}
-    def dp(a, b, i, j, value):
+    def dp(i, j, value):
         # base case if the length is 0
         if i == 0 or j == 0:
             return (0, "")
@@ -27,12 +27,12 @@ def HighestValueLongestCommonSequence(a, b, value):
         res = None
         # if last chars match this is a valid common subsequence
         if a[i - 1] == b[j - 1]:
-            val, subseq = dp(a, b, i - 1, j - 1, value)
+            val, subseq = dp(i - 1, j - 1, value)
             res = (val + value[a[i - 1]], subseq + a[i - 1])
 
         else:
-            val1, subseq1 = dp(a, b, i, j - 1, value)
-            val2, subseq2 = dp(a, b, i - 1, j, value)
+            val1, subseq1 = dp(i, j - 1, value)
+            val2, subseq2 = dp(i - 1, j, value)
 
             if val1 > val2:
                 res = (val1, subseq1)
@@ -40,7 +40,7 @@ def HighestValueLongestCommonSequence(a, b, value):
                 res =  (val2, subseq2)
         memo[(i, j)] = res
         return res
-    return dp(a, b, len(a), len(b), value)
+    return dp(len(a), len(b), value)
 
 
 if __name__ == "__main__":
