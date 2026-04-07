@@ -49,13 +49,13 @@ def main():
     args = sys.argv[1:]
     if args:
         input_file = str(args[0])
-    
+
     else:
         input_file = 'tests/test1.in'
-    
+
     A, B, value = parse_input(input_file)
     hv_result, hv_string = HighestValueLongestCommonSequence(A, B, value)
-    output_file = input_file.removesuffix('.in') + '.out' 
+    output_file = input_file.removesuffix('.in') + '.out'
 
     with open(output_file, 'w') as f:
         f.write(str(hv_result) +'\n')
