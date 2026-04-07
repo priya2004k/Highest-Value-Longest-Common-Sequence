@@ -3,13 +3,13 @@ Priya Khatri - 24056337 James Hu - 78869080
 ## Repository Structure
 - src (source code directory)
   - hvlcs.py: Program with implementation of the Highest Value Longest Common Subsequence algorithm (uses recursion and memoization). Also contains the input parser and main functions.
-  - 
+  - empirical_comparison.py: Program for running all 11 input test cases and plotting the runtimes for Question 1. 
 - tests (test directory)
   - contains all the input files (both user generated and included).
   - Also contains the corresponding output files for each input file. 
  
 ## Getting Started
-Make sure you can run Python code in your environment.
+Make sure you can run Python code in your environment. To run the empirical comparison analysis, make sure to install the matplotlib library using pip or conda. 
 Clone the repository: `git clone https://github.com/priya2004k/Highest-Value-Longest-Common-Sequence.git`
 
 ## Input Specifications
@@ -42,10 +42,15 @@ Second line: one optimal subsequence achieving that value
 To Run HVLCS on an input file
 Move your input file into the input/ directory, then run:
 
-`python src/runner.py inputs/YOUR_INPUT_FILE.in`
+`python src/hvlcs.py inputs/YOUR_INPUT_FILE.in`
 
 If no input file is provided, the function will run on the default `test1.in` file. 
 
+To run the empirical analysis for Question 1, simply run: 
+`python src/empirical_comparison.py`
+
+## Question 1: 
+![Image of run time graph for all 11 input test cases](./runtimes.png)
 
 ## Question 2: Recurrence Equation
 
@@ -63,3 +68,17 @@ We can prove that this algorithm is optimal using proof by exchange. Assime that
 At any index i, j, if A[i-1] != B[j-1], OPT will make the choice to exclude one of the last characters from either A or B since both can't be used in the highest value common subsequence. Therefore our algorithm DP will come up with a solution that is equally good, if not better to OPT because it checks both subproblems (i-1, j) and (i, j-1) and takes the max of both. 
 Additionally at any index i, j, if A[i-1] == B[j-1] then the OPT algorithm can either choose to include the character at those indexes into the LCS or not. In this scenario DP will perform the same or better than OPT because DP explores both choices where it adds the character to the value count for LCS and also skips the character, and DP will take the max of those two choices. 
 So, we can replace OPT(i, j) with DP(i, j) and not decrease the perfomrance of the optimal algorithm. This means that our DP algorithm is optimal. 
+
+## Question 3
+```
+Let n = length of A, p = length of B, and v = values.
+for i in range(1, n + 1):
+  for j in range(1, p + 1):
+    if A[i] == B[j]:
+      dp[i][j] = dp[i - 1][j - 1] + v(A[i]) 
+    else:
+      dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+return dp[n][p]
+
+```
+The runtime complexity of this algorithm is O(np) because there are two nested for loops. 
