@@ -4,8 +4,9 @@ Priya Khatri - 24056337 James Hu - 78869080
 - src (source code directory)
   - hvlcs.py: Program with implementation of the Highest Value Longest Common Subsequence algorithm (uses recursion and memoization). Also contains the input parser and main functions.
   - 
-- inputs (input directory)
+- tests (test directory)
   - contains all the input files (both user generated and included).
+  - Also contains the corresponding output files for each input file. 
  
 ## Getting Started
 Make sure you can run Python code in your environment.

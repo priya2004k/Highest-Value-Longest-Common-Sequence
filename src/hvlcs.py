@@ -1,3 +1,5 @@
+import sys
+
 def parse_input(filename):
     with open(filename, "r") as f:
         lines = [line.strip() for line in f if line.strip()]
@@ -43,6 +45,21 @@ def HighestValueLongestCommonSequence(a, b, value):
     return dp(len(a), len(b), value)
 
 
+def main():
+    args = sys.argv[1:]
+    if args:
+        input_file = str(args[0])
+    
+    else:
+        input_file = 'tests/test1.in'
+    
+    A, B, value = parse_input(input_file)
+    hv_result, hv_string = HighestValueLongestCommonSequence(A, B, value)
+    output_file = input_file.removesuffix('.in') + '.out' 
+
+    with open(output_file, 'w') as f:
+        f.write(str(hv_result) +'\n')
+        f.write(str(hv_string) +'\n')
+
 if __name__ == "__main__":
-    A, B, value = parse_input("inputs/test1.in")
-    print(HighestValueLongestCommonSequence(A, B, value))
+    main()
